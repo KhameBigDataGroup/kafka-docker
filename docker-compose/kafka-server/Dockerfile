@@ -13,6 +13,9 @@ WORKDIR /root
 RUN mkdir -p kafka
 
 WORKDIR /usr/local/kafka
-ADD . .
+RUN rm -r config
+RUN mkdir -p config
+
+Add run_server.sh .
 RUN chmod +x run_server.sh
 ENTRYPOINT "./run_server.sh"
