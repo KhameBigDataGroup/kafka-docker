@@ -1,0 +1,10 @@
+version: '2.0'
+services:
+  zookeeper:
+    build: zookeeper/
+    depends_on:
+      - kafka-server
+
+  kafka-server:
+    build: kafka-server/
+    
