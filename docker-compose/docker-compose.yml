@@ -1,0 +1,19 @@
+version: '2.0'
+services:
+  zookeeper:
+    build: zookeeper/
+    depends_on:
+      - kafka-server
+    environment:
+      - TERM=xterm
+    volumes:
+      - ./zookeeper/config:/usr/local/kafka/config
+      - ./zookeeper/Logs:/root/kafka/log
+
+  kafka-server:
+    build: kafka-server/
+    environment:
+      - TERM=xterm
+    volumes:
+      - ./kafka-server/config:/usr/local/kafka/config
+      - ./kafka-server/Logs:/root/kafka/log
